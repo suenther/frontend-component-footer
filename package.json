@@ -12,7 +12,8 @@
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "snapshot": "fedx-scripts jest --updateSnapshot",
     "start": "fedx-scripts webpack-dev-server --progress",
-    "test": "fedx-scripts jest --coverage"
+    "test": "fedx-scripts jest --coverage",
+    "prepare": "npm run build"
   },
   "files": [
     "/dist"
@@ -24,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-component-footer.git"
+    "url": "git+https://github.com/1nilsh/frontend-component-footer.git"
   },
   "author": "edX",
   "license": "AGPL-3.0",
