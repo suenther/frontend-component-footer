@@ -48,6 +48,7 @@ class SiteFooter extends React.Component {
         role="contentinfo"
         className="footer d-flex border-top py-3 px-4"
       >
+        <div>hihi nils war hier</div>
         <div className="container-fluid d-flex">
           <a
             className="d-block"
