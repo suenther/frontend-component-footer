@@ -6,7 +6,6 @@ import { ensureConfig } from '@edx/frontend-platform/config';
 import { AppContext } from '@edx/frontend-platform/react';
 
 import messages from './Footer.messages';
-import LanguageSelector from './LanguageSelector';
 
 ensureConfig([
   'LMS_BASE_URL',
@@ -48,6 +47,11 @@ class SiteFooter extends React.Component {
         role="contentinfo"
         className="footer d-flex border-top py-3 px-4"
       >
+        <script src="./timeme.js"></script>
+        <script src="./edx_stats.js"></script>
+        <script src="./g_loader.js"></script>
+        <script>{`
+       `}</script>
         <div className="container-fluid d-flex">
           <a
             className="d-block"
