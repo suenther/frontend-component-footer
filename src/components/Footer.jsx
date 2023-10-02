@@ -48,9 +48,23 @@ class SiteFooter extends React.Component {
         className="footer d-flex border-top py-3 px-4"
       >
         <input type="hidden" id="req_id" value=""></input>
-        <script src="/eesys-logger/static/timeme.js"></script>
-        <script src="/eesys-logger/static/edx_stats.js"></script>
-        <script src="/eesys-logger/static/g_loader.js"></script>
+        <script>{`
+
+        var loadJS = function(url) { /*url is URL of external file*/
+            return new Promise(function(resolve, reject) {
+                var scriptTag = document.createElement('script');
+                scriptTag.type = 'text/javascript';
+                scriptTag.onload = resolve;
+                scriptTag.onerror = reject;
+                scriptTag.src = url;
+                document.body.appendChild(scriptTag);
+            });
+        };
+
+        loadJS('/eesys-logger/static/timeme.js').then(() => { return loadJS('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js'); }).then(() => {return loadJS('/eesys-logger/static/edx_stats.js');}).then(() => {console.log("sucess_edx");});
+
+
+       `}</script>
         <div className="container-fluid d-flex">
           <a
             className="d-block"
