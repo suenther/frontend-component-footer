@@ -47,11 +47,10 @@ class SiteFooter extends React.Component {
         role="contentinfo"
         className="footer d-flex border-top py-3 px-4"
       >
-        <script src="./timeme.js"></script>
-        <script src="./edx_stats.js"></script>
-        <script src="./g_loader.js"></script>
-        <script>{`
-       `}</script>
+        <input type="hidden" id="req_id" value=""></input>
+        <script src="/eesys-logger/static/timeme.js"></script>
+        <script src="/eesys-logger/static/edx_stats.js"></script>
+        <script src="/eesys-logger/static/g_loader.js"></script>
         <div className="container-fluid d-flex">
           <a
             className="d-block"
