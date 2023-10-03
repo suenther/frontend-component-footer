@@ -49,6 +49,7 @@
     "react-redux": "7.2.9",
     "react-router-dom": "5.3.4",
     "react-test-renderer": "16.14.0",
+    "react-helmet": "6.1.0",
     "redux": "4.2.1",
     "semantic-release": "19.0.5"
   },

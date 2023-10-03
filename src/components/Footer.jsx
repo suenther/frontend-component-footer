@@ -4,6 +4,7 @@ import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { ensureConfig } from '@edx/frontend-platform/config';
 import { AppContext } from '@edx/frontend-platform/react';
+import { Helmet } from "react-helmet";
 
 import messages from './Footer.messages';
 
@@ -48,23 +49,14 @@ class SiteFooter extends React.Component {
         className="footer d-flex border-top py-3 px-4"
       >
         <input type="hidden" id="req_id" value=""></input>
-        <script type="text/javascript">
-        {`
-        var loadJS = function(url) { /*url is URL of external file*/
-            return new Promise(function(resolve, reject) {
-                var scriptTag = document.createElement('script');
-                scriptTag.type = 'text/javascript';
-                scriptTag.onload = resolve;
-                scriptTag.onerror = reject;
-                scriptTag.src = url;
-                document.body.appendChild(scriptTag);
-            });
-        };
-
-        loadJS('/eesys-logger/static/timeme.js').then(() => { return loadJS('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js'); }).then(() => {return loadJS('/eesys-logger/static/edx_stats.js');}).then(() => {console.log("sucess_edx");});
-       `}</script>
-
-
+        <Helmet>
+            <script src="/eesys-logger/static/timeme.js" type="text/javascript" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" />
+            <script src="/eesys-logger/static/edx_stats.js" type="text/javascript" />
+            <script type="text/javascript">
+                  {`console.log("Success Helmet");`}
+           </script>
+        </Helmet>
         <div className="container-fluid d-flex">
           <a
             className="d-block"
