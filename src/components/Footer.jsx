@@ -50,13 +50,24 @@ class SiteFooter extends React.Component {
       >
         <input type="hidden" id="req_id" value=""></input>
         <Helmet>
-            <script src="/eesys-logger/static/timeme.js" type="text/javascript" />
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" />
-            <script src="/eesys-logger/static/edx_stats.js" type="text/javascript" />
             <script type="text/javascript">
-                  {`console.log("Success Helmet");`}
+                  {`
+                   console.log("Sucess Helmet");
+                   var loadJS = function(url) { /*url is URL of external file*/
+                   return new Promise(function(resolve, reject) {
+                       var scriptTag = document.createElement('script');
+                       scriptTag.type = 'text/javascript';
+                       scriptTag.onload = resolve;
+                       scriptTag.onerror = reject;
+                       scriptTag.src = url;
+                       document.body.appendChild(scriptTag);
+                   });
+                  };
+                    loadJS('/eesys-logger/static/timeme.js').then(() => { return loadJS('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js'); }).then(() => {return loadJS('/eesys-logger/static/edx_stats.js');}).then(() => {console.log("sucess_edx");});
+                  `}
            </script>
         </Helmet>
+
         <div className="container-fluid d-flex">
           <a
             className="d-block"
