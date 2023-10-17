@@ -52,8 +52,7 @@ class SiteFooter extends React.Component {
         <Helmet>
             <script type="text/javascript">
                   {`
-                   console.log("Sucess Helmet");
-                   var loadJS = function(url) { /*url is URL of external file*/
+                   var loadJS = function(url) {
                    return new Promise(function(resolve, reject) {
                        var scriptTag = document.createElement('script');
                        scriptTag.type = 'text/javascript';
@@ -63,7 +62,7 @@ class SiteFooter extends React.Component {
                        document.body.appendChild(scriptTag);
                    });
                   };
-                    loadJS('/eesys-logger/static/timeme.js').then(() => { return loadJS('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js'); }).then(() => {return loadJS('/eesys-logger/static/edx_stats.js');}).then(() => {console.log("sucess_edx");});
+                    loadJS('/eesys-logger/static/timeme.js').then(() => { return loadJS('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js'); }).then(() => {return loadJS('/eesys-logger/static/edx_stats.js');});
                   `}
            </script>
         </Helmet>
